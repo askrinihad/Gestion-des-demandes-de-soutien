@@ -1,0 +1,10 @@
+const express = require("express");
+const router = express.Router();
+const controller = require("../controller/agent");
+const upload = require("../middleware/upload");
+router.post("/ajouter", upload.single("signature"), controller.ajouterAgent);
+router.delete("/supprimerAgent/:id", controller.supprimerAgent);
+router.put("/modifierAgent/:id", controller.modifierAgent);
+router.get("/getListAgent", controller.getListAgent);
+router.get("/searchAgent/:id", controller.getAgentById);
+module.exports = router;
